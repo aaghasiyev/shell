@@ -10,7 +10,7 @@ jobs:
       - run: python main.py
 test_with_old_version:
   docker:
-    -image: cimg/python:2.7
+    -image: cimg/python:3.8
   steps:
       - checkout
       - run: python --version
