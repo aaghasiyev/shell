@@ -8,10 +8,16 @@ jobs:
       - checkout
       - run: python --version
       - run: python main.py
-
+test_with_old_version:
+  docker:
+    -image: cimg/python:2.7
+  steps:
+      - checkout
+      - run: python --version
+      - run: python main.py
 # Orchestrate our job run sequence
 workflows:
   build_and_test:
     jobs:
       - build
-      #- test
+      - test_with_old_version
